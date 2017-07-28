@@ -1,9 +1,10 @@
-//tempJs
 
-function setup() {
-console.log("hello world");
-}
+if (typeof jQuery != 'undefined') {
 
-function draw() {
-console.log("hello world");
+    alert("jQuery library is loaded!");
+
+} else{
+
+    alert("jQuery library is not found!");
+
 }
