@@ -15,9 +15,11 @@
   <body>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <div class = "container-fluid">
-      <p>Here is a long paragraph.  It should be responsive to page resizing.  
-        If not then bootstrap isn't working. </p>
-      <button id="qButton" class="btn btn-primary">Generate Quote</button>
+      
+      <p>Click the button to get your coordinates!</p>
+      <button id="qButton" onclick="getLoc()" class="btn btn-primary">Generate Coordinates</button>
+      <p id="userLoc">here</p>  
+    
     </div>
     
     <script src="libraries/js/bootstrap.min.js"></script>
