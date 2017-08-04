@@ -9,4 +9,4 @@ check it out at the link here: https://codepen.io/tmstani23/full/vJKXgr/
 
 Screenshots:
 
-![Alt text](https://raw.githubusercontent.com/tmstani23/Local-Weather-App/scrn1.png)
+![Alt text](https://raw.githubusercontent.com/tmstani23/Local-Weather-App/master/scrn1.png)
