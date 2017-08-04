@@ -4,27 +4,28 @@
     <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
     <!-- uncomment lines below to include extra p5 libraries -->
     <script language="javascript" src="libraries/p5.dom.js"></script>
+    
     <link href="libraries/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Condensed" rel="stylesheet">
     <script src="libraries/jquery-3.2.1.min.js"></script>
     <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
     <script language="javascript" type="text/javascript" src="weather.js"></script>
-    
+    <link rel="stylesheet" type="text/css" href="weathercss.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <div class = "container-fluid text-center">
+    <div class = "container-fluid text-center" id="mainDiv">
       
-      <p>Click the button to get your coordinates!</p>
-      <button id="qButton" class="btn btn-primary">Generate Coordinates</button>
-      <p id="userLoc">here</p>
+      <h1>Weather Scope!</h1>
       <p id="userCity">here</p>
+      <button id="qButton" onclick="calcCels()" class="btn btn-primary">&deg;C / &deg;F</button>
       <p id="temp">here</p>
       <p id="humidity">here</p>
       <p id="weather">here</p>
       <img id="weatherImg"></img>
-      
+      <p id="userLoc">here</p>
     
     </div>
     
