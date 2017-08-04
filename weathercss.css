@@ -1,0 +1,18 @@
+#mainDiv {
+  margin-top: 10%;
+  background-color: black;
+}
+h1 {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 120px;
+  
+}
+p {
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+}
+#userCity {
+  margin-top: 2%;
+}
