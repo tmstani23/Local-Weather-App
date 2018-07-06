@@ -1,4 +1,8 @@
 # Local-Weather-App
+
+#Under Development
+##Refactoring and building in React
+
 A simple weather app that displays weather for a given user's location.
 
 For use:

@@ -5,8 +5,6 @@
 h1 {
   font-family: 'Raleway', sans-serif;
   color: white;
-  font-size: 120px;
-  
 }
 p {
   color: white;
@@ -18,4 +16,8 @@ p {
 }
 #copyrightDiv {
   margin-top: 5%;
+}
+#tButton {
+ margin-bottom: 20px;
+ margin-top: 0px;
 }
