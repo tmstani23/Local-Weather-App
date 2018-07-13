@@ -6,9 +6,12 @@
     <!-- uncomment lines below to include extra p5 libraries -->
    
     <link href="libraries/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Condensed" rel="stylesheet">
-    <script src="libraries/jquery-3.2.1.min.js"></script>
-    <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="weather-new.jsx" type="text/babel"></script>
     
     <link rel="stylesheet" type="text/css" href="main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,19 +21,11 @@
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <div class = "container-fluid text-center" id="mainDiv">
       
-      <h1>Weather Scope!</h1>
-      <p id="userCity"></p>
-      <p id="temp"></p>
-      <button id="tButton" onclick="calcCels()" class="btn btn-primary">&deg;C / &deg;F</button>
-      <p id="humidity"></p>
-      <p id="weather"></p>
-      <img id="weatherImg"></img>
-      <p id="userLoc"></p>
-    <div class="col-md-12" id="copyrightDiv">
+      <div id="root"></div>
+      <div class="col-md-12" id="copyrightDiv">
           Created by Timothy Stanislav: IndoorKin Productions &copy; 
-        </div>
+      </div>
     </div>
     
-    <script language="javascript" type="text/javascript" src="weather-new.js"></script>
   </body>
 </html>
