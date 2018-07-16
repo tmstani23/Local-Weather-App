@@ -16,8 +16,9 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            data: ""
+            data: []
         }
+        this.fetchData = this.fetchData.bind(this);
     }
 
     checkGeo = () => { 
@@ -36,12 +37,17 @@ class App extends React.Component {
     fetchData = (request) => {
         
         fetch(request)
-            .then(function(response) {
-                
+            .then((response) => {
+                //var joined = this.state.data.concat(response.json());
+                //this.setState({ myArray: joined })
+                this.setState({data: response.json()})
+                console.log(this.state.data);
                 return response.json();
             })
             .then(function(myJson) {
-                console.log(myJson);
+                
+            
+            //console.log(myJson);
                 
             });
         
