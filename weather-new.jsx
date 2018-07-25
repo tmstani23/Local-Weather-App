@@ -1,3 +1,7 @@
+
+
+
+
 //Component to handle loading states when fetching data:
 class Loading extends React.Component {
     constructor(props) {
@@ -53,14 +57,8 @@ class DataComponent extends React.Component {
             tempMax: null,
             error: "",
             loading: true,
-            isCelsius: "F"
+            isCelsius: "C"
         }
-    }
-
-    checkGeo = () => { 
-        navigator.geolocation.getCurrentPosition((position) => {
-            this.composeRequest(position.coords.latitude, position.coords.longitude);
-        }) 
     }
     fetchData = (request) => {
         this.setState( {loading: true} );
@@ -80,12 +78,7 @@ class DataComponent extends React.Component {
         const request = `https://fcc-weather-api.glitch.me/api/current?lat=${latitude}&lon=${longitude}`;
         console.log(request);
         return this.fetchData(request);
-    } 
-
-    componentDidMount () {
-        this.checkGeo();
-        
-    }  
+    }   
     tempChange = () => {
         //if is celsius set temp settings to celsius from data object:
         if (this.state.isCelsius == "F") {
@@ -113,40 +106,48 @@ class DataComponent extends React.Component {
         return (
             <div>
                 { this.state.loading === true
-                ? <Loading />
-                // Else display a header with the current language and the RepoGrid component
-                : <DataGrid data = {this.state.data[0]} handleChildClick= {this.tempChange} 
-                temp = {this.state.temp} tempMin = {this.state.tempMin} 
-                tempMax = {this.state.tempMax} mUnits = {this.state.isCelsius} /> 
-                
+                    ? <h1><Loading />
+                    <GeoComponent geoCallback = {this.composeRequest}/> </h1> 
+                    // Else display a header with the current language and the RepoGrid component
+                    : <DataGrid data = {this.state.data[0]} handleChildClick= {this.tempChange} 
+                    temp = {this.state.temp} tempMin = {this.state.tempMin} 
+                    tempMax = {this.state.tempMax} mUnits = {this.state.isCelsius} /> 
                 }
-
-                
-            </div>
-            
-                
-            
-              
+            </div>    
         )
     }
 }
 
-class App extends React.Component {
+class GeoComponent extends React.Component {
     
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            error: null
-            
-        }
-        
+    
+    success = (pos) => {
+        var crd = pos.coords;
+        //this.setState( {lat: crd.latitude, lon: crd.longitude} )
+        this.props.geoCallback(crd.latitude, crd.longitude)
+        // console.log('Your current position is:');
+        // console.log(`Latitude : ${crd.latitude}`);
+        // console.log(`Longitude: ${crd.longitude}`);
+        // console.log(`More or less ${crd.accuracy} meters.`);
+        //console.log(this.state.lon);
     }
-
+      
+    error = (err) => {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+    getGeog = (success, error) => { 
+        navigator.geolocation.getCurrentPosition(success, error);
+        // navigator.geolocation.getCurrentPosition((success, error) => {
+        //     this.composeRequest(position.coords.latitude, position.coords.longitude);
+        // }) 
+    }
+    componentDidMount() {
+        this.getGeog(this.success, this.error)
+    }
     render () {
         return (
             <div>
-                <DataComponent />
+                
             </div>
                
         )
@@ -155,7 +156,6 @@ class App extends React.Component {
 
 
 ReactDOM.render(
-    <App />,
-
+    <DataComponent />,
     document.getElementById('root')
 );
