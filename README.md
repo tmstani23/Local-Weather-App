@@ -1,18 +1,18 @@
 # Local-Weather-App
 
-#Under Development
-##Refactoring and building in React
+A simple weather app that displays weather based on user geolocation.
 
-A simple weather app that displays weather for a given user's location.
+## Usage:
+Clone and download.  Extract to desktop.
 
-For use:
-It will only work for those who host a webserver.  Feel free to clone and share the source code.
+Open index.html to run.
 
-If you want to check the app out in fully functional format 
-check it out at the link here: https://codepen.io/tmstani23/full/vJKXgr/
+Click the button to switch temperature between Celsius and Farenheit.
 
-Also, you can click the button to switch temp between Celsius and Farenheit.
 
-Screenshots:
+If you want to use the application without downloading
+visit this codepen: https://codepen.io/tmstani23/pen/vJKXgr
 
-![Alt text](https://raw.githubusercontent.com/tmstani23/Local-Weather-App/master/scrn1.png)
+
+### Screenshots:
+![Alt text](https://raw.githubusercontent.com/tmstani23/Local-Weather-App/master/ss1.jpg)

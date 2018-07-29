@@ -23,9 +23,9 @@ class Loading extends React.Component {
     //Render the state's text: ("...")
     render() {
         return (
-        <p className = "loading-p">
+        <h1 className = "loading">
             {this.state.text}
-        </p>
+        </h1>
         )
     }
 }
@@ -36,14 +36,14 @@ function DataGrid(props) {
         <ul className="data-grid">
             {/* When the temp unit button is clicked a method from the parent DataComponent
             switches temp units and updates its state */}
-            <button onClick={props.handleChildClick}>&deg;{props.mUnits}</button>
-            <li>{ props.data.name }, { props.data.sys.country }</li>
-            <li >Current Temp: { props.temp } </li>
-            <li>Temperature Range: { props.tempMin } - { props.tempMax }</li>
+            
+            <li>{ props.data.name }, { props.data.sys.country } </li>
+            <li >Current Temp: <strong>{ props.temp } </strong> <button onClick={props.handleChildClick}>&deg;{props.mUnits}</button> </li>
+            <li>Temperature Range: <strong>{ props.tempMin } - { props.tempMax }</strong></li>
             <li> <img src={ props.data.weather[0].icon }/> </li>
             <li> { props.data.weather[0].description.toUpperCase() } </li>
-            <li> Humidity: { props.data.main.humidity } </li>
-            <li> Visibility: { (props.data.visibility / 5280).toFixed(2) } miles</li>
+            <li> Humidity: <strong>{ props.data.main.humidity }</strong> </li>
+            <li> Visibility (miles): <strong>{ (props.data.visibility / 5280).toFixed(2) }</strong> </li>
         </ul>
     )
 }
@@ -115,13 +115,15 @@ class DataComponent extends React.Component {
             <div>
                 {/* if loading render the loading component and geolocation component */}
                 { this.state.loading === true
-                    ? <h1><Loading />
-                    {/* Here the composeRequest method is passed as props so it can be used within the GeoComponent */}
-                    <GeoComponent geoCallback = {this.composeRequest}/> </h1> 
+                    ? <div><Loading />
+                     {/* Here the composeRequest method is passed as props so it can be used within the GeoComponent */}
+                    <GeoComponent geoCallback = {this.composeRequest}/>
+                    </div>
                     // Else render the Data Grid component and pass in the data and tempChange method as props
-                    : <DataGrid data = {this.state.data[0]} handleChildClick= {this.tempChange} 
+                    : <div><DataGrid data = {this.state.data[0]} handleChildClick= {this.tempChange} 
                     temp = {this.state.temp} tempMin = {this.state.tempMin} 
-                    tempMax = {this.state.tempMax} mUnits = {this.state.isCelsius} /> 
+                    tempMax = {this.state.tempMax} mUnits = {this.state.isCelsius} />
+                    </div>
                 }
             </div>    
         )
@@ -157,7 +159,7 @@ class GeoComponent extends React.Component {
     render () {
         return (
             <div>
-               <h1>{this.state.errorMsg}</h1> 
+               <h3 class="error-div">{this.state.errorMsg}</h3> 
             </div>
                
         )
